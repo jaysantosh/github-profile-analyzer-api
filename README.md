@@ -1,34 +1,57 @@
 # 🚀 GitHub Profile Analyzer API
 
-## 📌 Project Overview
-The **GitHub Profile Analyzer API** is a backend service built using **Node.js, Express.js, and MySQL**. It fetches public GitHub user data, analyzes key profile insights, and stores them in a database.
+> A scalable backend service built with Node.js that fetches, analyzes, and stores GitHub user profile data using a cloud-hosted MySQL database.
 
-This project integrates with the **GitHub Public REST API** to extract useful information and provides RESTful APIs to access stored insights.
+---
+
+## 🌐 Live Demo
+
+🔗 **API Base URL:**  
+https://your-render-url.onrender.com  
+
+---
+
+## 📌 Project Overview
+
+The **GitHub Profile Analyzer API** is a backend application that integrates with the **GitHub Public REST API** to fetch user profile data, extract valuable insights, and store them in a **cloud-hosted MySQL database (Aiven)**.
+
+This project demonstrates:
+- API integration
+- Backend development using Express.js
+- Cloud database management
+- RESTful API design
 
 ---
 
 ## 🎯 Objective
-- Fetch GitHub profile details using username
-- Analyze useful insights
-- Store analyzed data in MySQL
-- Provide APIs to retrieve stored data
+
+- Fetch public GitHub profile data using a username  
+- Analyze useful metrics (followers, repos, etc.)  
+- Store analyzed data in MySQL  
+- Provide APIs to retrieve stored results  
 
 ---
 
 ## 🧰 Tech Stack
+
 - ⚡ Node.js  
 - 🚀 Express.js  
-- 🗄️ MySQL  
-- 🌐 GitHub API  
+- 🗄️ MySQL (Aiven Cloud Database)  
+- 🌐 GitHub REST API  
+- ☁️ Render (Deployment Platform)  
 
 ---
 
 ## ✨ Features
-- 🔍 Fetch GitHub profile by username
-- 📊 Analyze data (repos, followers, etc.)
-- 💾 Store insights in MySQL
-- 📡 REST API endpoints
-- ⚠️ Error handling for invalid users
+
+- 🔍 Fetch GitHub profile by username  
+- 📊 Analyze key insights:
+  - Public repositories count  
+  - Followers & Following  
+  - Profile details (name, bio, URL)  
+- 💾 Store data in cloud database  
+- 📡 REST APIs for data retrieval  
+- ⚠️ Error handling (invalid users, API errors)  
 
 ---
 
@@ -38,10 +61,10 @@ This project integrates with the **GitHub Public REST API** to extract useful in
 github-profile-analyzer/
 │
 ├── src/
-│   ├── config/         # Database configuration
-│   ├── controllers/    # Request handlers
+│   ├── config/         # Database connection setup
+│   ├── controllers/    # Business logic
 │   ├── routes/         # API routes
-│   ├── services/       # GitHub API logic
+│   ├── services/       # GitHub API calls
 │   ├── app.js
 │   └── server.js
 │
@@ -51,72 +74,3 @@ github-profile-analyzer/
 ├── .env
 ├── package.json
 └── README.md
-
-
-⚙️ Installation & Setup
-
-1️⃣ Clone Repository
-git clone https://github.com/your-username/github-profile-analyzer.git
-cd github-profile-analyzer
-
-2️⃣ Install Dependencies
-npm install
-
-3️⃣ Create .env File
-PORT=3000
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=your_password
-DB_NAME=github_analyzer
-GITHUB_API_BASE=https://api.github.com
-
-🛠️ Database Setup
-Create database:
-CREATE DATABASE github_analyzer;
-``
-
-Import schema:
-source sql/database.sql;
-
-▶️ Run Server
-Development
-npm run dev
-
-Production
-npm start
-
-Server URL:
-http://localhost:3000
-
-🔗 API Endpoints
-📌 Analyze GitHub Profile
-POST /api/github/analyze/:username
-
-📌 Get All Profiles
-GET /api/github/profiles
-
-📌 Get Profile by Username
-GET /api/github/profiles/:username
-
-
-📊 Database Schema
-CREATE TABLE github_profiles (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(255),
-    name VARCHAR(255),
-    bio TEXT,
-    public_repos INT,
-    followers INT,
-    following INT,
-    profile_url VARCHAR(255),
-    created_at DATETIME,
-    analyzed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-
-Show more lines
-
-🚀 Deployment
-
-🌐 Live API: https://your-deployed-url.com
-📂 GitHub Repo: https://github.com/your-username/github-profile-analyzer
