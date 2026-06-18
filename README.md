@@ -244,3 +244,38 @@ Get All Profiles (Pagination Supported)
 ```bash
 GET /api/profiles?page=1&limit=2
 ```
+
+---
+
+## Added Features
+Searching Profile by username, language, and minFollowers
+```bash
+# Search by username
+GET /api/profiles/search?username=octo
+# Search by language
+GET /api/profiles/search?language=JavaScript
+# Search by minimum followers
+GET /api/profiles/search?minFollowers=100
+# Combine filters
+GET /api/profiles/search?language=JavaScript&minFollowers=100
+```
+---
+Sorting (can be combined with search)
+```bash
+# Sort by followers
+GET /api/profiles/search?sort=followers&order=desc
+# Sort by total stars
+GET /api/profiles/search?sort=total_stars&order=desc
+# Sort by public repositories
+GET /api/profiles/search?sort=public_repos&order=desc
+# Sort alphabetically
+GET /api/profiles/search?sort=username&order=asc
+# Search + Sort together
+GET /api/profiles/search?language=JavaScript&sort=followers&order=desc
+```
+---
+
+Get All Profiles (Pagination Supported)
+```bash
+GET /api/profiles?page=1&limit=2
+```
