@@ -1,7 +1,7 @@
 const axios = require('axios');
 const db = require('../db/connection');
 
-exports.analyzeProfile = async (req, res) => {
+async function AnalyzeProfileController(req, res){
     const { username } = req.params;
 
     try {
@@ -74,26 +74,7 @@ exports.analyzeProfile = async (req, res) => {
     } catch (err) {
         res.status(500).json({ error: "Failed to fetch GitHub data" });
     }
-};
+}
 
-// Get all profiles
-exports.getAllProfiles = (req, res) => {
-    db.execute("SELECT * FROM profiles", (err, results) => {
-        if (err) return res.status(500).json(err);
-        res.json(results);
-    });
-};
 
-// Get single profile
-exports.getProfileByUsername = (req, res) => {
-    const { username } = req.params;
-
-    db.execute(
-        "SELECT * FROM profiles WHERE username = ?",
-        [username],
-        (err, results) => {
-            if (err) return res.status(500).json(err);
-            res.json(results[0]);
-        }
-    );
-};
+module.exports = AnalyzeProfileController

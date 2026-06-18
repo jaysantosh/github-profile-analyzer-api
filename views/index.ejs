@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>GitHub Profile Analyzer API</title>
+
+    <style>
+
+        body{
+
+            font-family: Arial;
+
+            max-width:900px;
+
+            margin:auto;
+
+            padding:40px;
+
+            line-height:1.7;
+
+        }
+
+        h1{
+
+            color:#2563eb;
+
+        }
+
+        .endpoint{
+
+            background:#f4f4f4;
+
+            padding:15px;
+
+            border-radius:10px;
+
+            margin-bottom:15px;
+
+        }
+
+        code{
+
+            background:#e5e7eb;
+
+            padding:3px 6px;
+
+            border-radius:5px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>🚀 GitHub Profile Analyzer API</h1>
+
+<p>
+
+Analyze GitHub profiles, store insights into MySQL and retrieve them later.
+
+</p>
+
+<hr>
+
+<h2>📌 Available APIs</h2>
+
+<div class="endpoint">
+
+<h3>Analyze Profile</h3>
+
+<p>
+
+<code>POST /api/analyze/:username</code>
+
+</p>
+
+<p>
+
+Example:
+
+<code>/api/analyze/octocat</code>
+
+</p>
+
+</div>
+
+<div class="endpoint">
+
+<h3>Get All Profiles</h3>
+
+<p>
+
+<code>GET /api/profiles</code>
+
+</p>
+
+<p>
+
+Pagination:
+
+<code>/api/profiles?page=1</code>
+
+</p>
+
+</div>
+
+<div class="endpoint">
+
+<h3>Get Single Profile</h3>
+
+<p>
+
+<code>GET /api/profiles/:username</code>
+
+</p>
+
+<p>
+
+Example:
+
+<code>/api/profiles/octocat</code>
+
+</p>
+
+</div>
+
+<div class="endpoint">
+
+<h3>Search Profiles</h3>
+
+<p>
+
+<code>GET /api/profiles/search</code>
+
+</p>
+
+<p>
+
+Examples:</p>
+
+<ul>
+
+<li>
+
+<code>?username=octo</code>
+
+</li>
+
+<li>
+
+<code>?language=JavaScript</code>
+
+</li>
+
+<li>
+
+<code>?minFollowers=100</code>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="endpoint">
+
+<h3>Search + Sorting</h3>
+
+<p>
+
+<code>/api/profiles/search?language=JavaScript&sort=followers&order=desc</code>
+
+</p>
+
+</div>
+
+<div class="endpoint">
+
+<h3>Rate Limiting</h3>
+
+<p>
+
+Analyze endpoint is protected against excessive requests.
+
+</p>
+
+</div>
+
+<hr>
+
+<p>
+
+Built using Node.js, Express.js, MySQL, GitHub API and deployed on Render.
+
+</p>
+
+</body>
+
+</html>
