@@ -7,7 +7,7 @@
 ## 🌐 Live Demo
 
 🔗 **API Base URL:**  
-https://your-render-url.onrender.com  
+https://github-profile-analyzer-api-2ug6.onrender.com
 
 ---
 
@@ -61,16 +61,134 @@ This project demonstrates:
 github-profile-analyzer/
 │
 ├── src/
-│   ├── config/         # Database connection setup
+│   ├── db/         # Database connection setup
 │   ├── controllers/    # Business logic
 │   ├── routes/         # API routes
-│   ├── services/       # GitHub API calls
 │   ├── app.js
-│   └── server.js
-│
-├── sql/
-│   └── database.sql    # Database schema
 │
 ├── .env
 ├── package.json
 └── README.md
+
+```
+---
+
+## ⚙️ Environment Variables
+Create a .env file:
+```sh
+
+DB_HOST=your-aiven-host
+DB_PORT=your-port
+DB_USER=your-username
+DB_PASSWORD=your-password
+DB_NAME=defaultdb
+
+GITHUB_API_BASE=https://api.github.com
+```
+---
+
+## ☁️ Database (Aiven MySQL)
+This project uses Aiven Cloud MySQL instead of a local database.<br>
+✅ Benefits:
+<br>
+
+🌍 Cloud-hosted (accessible anywhere) <br>
+🔒 Secure (SSL support) <br>
+⚡ High availability
+
+---
+
+## 🛠️ Database Schema
+```bash
+CREATE TABLE github_profiles (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(255),
+  name VARCHAR(255),
+  bio TEXT,
+  public_repos INT,
+  followers INT,
+  following INT,
+  profile_url VARCHAR(255),
+  created_at DATETIME,
+  analyzed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+---
+
+## 🔗 API Endpoints
+1️⃣ Analyze GitHub Profile
+
+```shell
+
+POST /api/analyze/:username
+```
+
+✅ Example Request
+
+```shell
+
+curl -X POST https://github-profile-analyzer-api-2ug6.onrender.com/api/analyze/octocat
+```
+
+2️⃣ Get All Profiles
+```shell
+
+GET /api/profiles
+curl https://github-profile-analyzer-api-2ug6.onrender.com/api/profiles
+```
+
+3️⃣ Get Profile by Username
+```shell
+
+GET /api/profiles/:username
+curl https://github-profile-analyzer-api-2ug6.onrender.com/api/profiles/octocat
+```
+
+📊 Sample Response
+```bash
+{
+  "username": "octocat",
+  "name": "The Octocat",
+  "bio": "GitHub mascot",
+  "public_repos": 8,
+  "followers": 5000,
+  "following": 9,
+  "profile_url": "https://github.com/octocat"
+}
+```
+---
+## ▶️ Run Locally
+
+1️⃣ Clone Repository
+```bash
+git clone https://github.com/jaysantosh/github-profile-analyzer-api.git
+cd github-profile-analyzer-api
+```
+
+2️⃣ Install Dependencies
+```bash
+npm install
+```
+
+3️⃣ Start Server
+
+```bash
+npm run dev
+```
+
+or 
+```bash
+npm start
+```
+---
+
+## 🚀 Deployment <br>
+✅ Deployed on Render <br>
+🔗 https://github-profile-analyzer-api-2ug6.onrender.com
+
+---
+## 🧪 Testing
+
+Tested using Postman <br>
+You can also test using curl or browser for GET APIs
+
