@@ -108,9 +108,9 @@ This project uses Aiven Cloud MySQL instead of a local database.
 
 ✅ Benefits:
 
--🌍 Cloud-hosted (accessible anywhere) <br>
--🔒 Secure (SSL support) <br>
--⚡ High availability
+- Cloud-hosted (accessible anywhere) <br>
+- Secure (SSL support) <br>
+- High availability
 
 ---
 
