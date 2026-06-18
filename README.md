@@ -1,85 +1,68 @@
-GitHub Profile Analyzer API
-📌 Project Overview
-The GitHub Profile Analyzer API is a backend service built using Node.js, Express.js, and MySQL that fetches public GitHub user data, analyzes key profile insights, and stores them in a database for future reference.
-This application uses the GitHub Public REST API to extract useful information from a GitHub user profile and exposes RESTful APIs to manage and retrieve the analyzed data.
+# 🚀 GitHub Profile Analyzer API
 
-🎯 Objective
+## 📌 Project Overview
+The **GitHub Profile Analyzer API** is a backend service built using **Node.js, Express.js, and MySQL**. It fetches public GitHub user data, analyzes key profile insights, and stores them in a database.
 
-Fetch public GitHub profile details using a username
-Analyze and extract useful insights
-Store analyzed profile data in MySQL
-Provide APIs to retrieve stored profile data
+This project integrates with the **GitHub Public REST API** to extract useful information and provides RESTful APIs to access stored insights.
 
+---
 
-🧰 Tech Stack
+## 🎯 Objective
+- Fetch GitHub profile details using username
+- Analyze useful insights
+- Store analyzed data in MySQL
+- Provide APIs to retrieve stored data
 
-Node.js
-Express.js
-MySQL
-GitHub Public API
+---
 
+## 🧰 Tech Stack
+- ⚡ Node.js  
+- 🚀 Express.js  
+- 🗄️ MySQL  
+- 🌐 GitHub API  
 
-✨ Key Features
+---
 
-Fetch GitHub public profile data by username
-Analyze and store useful insights such as:
+## ✨ Features
+- 🔍 Fetch GitHub profile by username
+- 📊 Analyze data (repos, followers, etc.)
+- 💾 Store insights in MySQL
+- 📡 REST API endpoints
+- ⚠️ Error handling for invalid users
 
-GitHub username
-Name
-Bio
-Public repository count
-Followers count
-Following count
-Account creation date
-Profile URL
+---
 
+## 📁 Project Structure
 
-Store analyzed data into a MySQL database
-REST APIs to:
-
-Fetch all stored analyzed profiles
-Fetch a single analyzed profile by username
-
-
-Error handling for invalid usernames and API failures
-
-
-📁 Project Structure
+```bash
 github-profile-analyzer/
 │
 ├── src/
-│   ├── config/
-│   │   └── db.js
-│   ├── controllers/
-│   │   └── githubController.js
-│   ├── routes/
-│   │   └── githubRoutes.js
-│   ├── services/
-│   │   └── githubService.js
+│   ├── config/         # Database configuration
+│   ├── controllers/    # Request handlers
+│   ├── routes/         # API routes
+│   ├── services/       # GitHub API logic
 │   ├── app.js
 │   └── server.js
 │
 ├── sql/
-│   └── database.sql
+│   └── database.sql    # Database schema
 │
 ├── .env
 ├── package.json
-├── package-lock.json
 └── README.md
 
 
-🛠️ Installation & Setup
-1️⃣ Clone the Repository
+⚙️ Installation & Setup
+
+1️⃣ Clone Repository
 git clone https://github.com/your-username/github-profile-analyzer.git
 cd github-profile-analyzer
-
 
 2️⃣ Install Dependencies
 npm install
 
-
-3️⃣ Configure Environment Variables
-Create a .env file in the root directory:
+3️⃣ Create .env File
 PORT=3000
 DB_HOST=localhost
 DB_USER=root
@@ -87,114 +70,53 @@ DB_PASSWORD=your_password
 DB_NAME=github_analyzer
 GITHUB_API_BASE=https://api.github.com
 
+🛠️ Database Setup
+Create database:
+CREATE DATABASE github_analyzer;
+``
 
-4️⃣ Setup MySQL Database
-
-Create a new database named github_analyzer
-Import the SQL file from the sql folder:
-
+Import schema:
 source sql/database.sql;
 
-
-5️⃣ Start the Server
-For development:
+▶️ Run Server
+Development
 npm run dev
 
-For production:
+Production
 npm start
 
-Server will run at:
+Server URL:
 http://localhost:3000
 
-
-📊 Database Schema
-Table: github_profiles
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Column NameTypeidINT (PK)usernameVARCHARnameVARCHARbioTEXTpublic_reposINTfollowersINTfollowingINTprofile_urlVARCHARcreated_atDATETIMEanalyzed_atTIMESTAMP
-
 🔗 API Endpoints
-➤ Analyze & Store GitHub Profile
+📌 Analyze GitHub Profile
 POST /api/github/analyze/:username
 
-Example:
-POST http://localhost:3000/api/github/analyze/octocat
-
-
-➤ Get All Analyzed Profiles
+📌 Get All Profiles
 GET /api/github/profiles
 
-
-➤ Get Single Profile by Username
+📌 Get Profile by Username
 GET /api/github/profiles/:username
 
 
-🚀 Live Deployment
+📊 Database Schema
+CREATE TABLE github_profiles (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255),
+    name VARCHAR(255),
+    bio TEXT,
+    public_repos INT,
+    followers INT,
+    following INT,
+    profile_url VARCHAR(255),
+    created_at DATETIME,
+    analyzed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
-Live API URL: https://your-deployed-url.com
-GitHub Repository: https://github.com/your-username/github-profile-analyzer
 
-(Update these links after deployment)
+Show more lines
 
-🧪 Testing
+🚀 Deployment
 
-APIs tested using Postman
-Postman Collection: (Optional – attach if available)
-
-
-🔮 Possible Enhancements
-
-Add GitHub repository language analysis
-Store most starred repository
-Pagination for profile list API
-Authentication & rate‑limit handling
-Dockerize the application
-Caching GitHub API responses
-
+🌐 Live API: https://your-deployed-url.com
+📂 GitHub Repo: https://github.com/your-username/github-profile-analyzer
