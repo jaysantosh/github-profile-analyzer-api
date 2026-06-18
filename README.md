@@ -80,6 +80,8 @@ github-profile-analyzer/
 │   ├── db/         # Database connection setup
 │   ├── controllers/    # Business logic
 │   ├── routes/         # API routes
+│   ├── middlewares/
+│   ├── views/
 │   ├── app.js
 │
 ├── .env
@@ -135,9 +137,11 @@ CREATE TABLE github_profiles (
 
 ```bash
 POST   /api/analyze/:username    # Analyze and store profile
-GET    /api/profiles             # Fetch all profiles
+GET    /api/profiles             # Fetch all profiles with pagination
 GET    /api/profiles/:username   # Fetch single profile
+GET    /api/profiles/search      # Search Profiles by various parameters 
 ```
+---
 
 **Examples**
 
@@ -150,6 +154,9 @@ curl https://github-profile-analyzer-api-2ug6.onrender.com/api/profiles
 
 # Get Profile by Username
 curl https://github-profile-analyzer-api-2ug6.onrender.com/api/profiles/octocat
+
+# Get Profile by various parameters
+curl https://github-profile-analyzer-api-2ug6.onrender.com/api/profiles/search?language=java
 ```
 
 
@@ -203,3 +210,37 @@ npm start
 
 You can also test using curl or browser for GET APIs
 
+---
+
+## Added Features
+Searching Profile by username, language, and minFollowers
+```bash
+# Search by username
+GET /api/profiles/search?username=octo
+# Search by language
+GET /api/profiles/search?language=JavaScript
+# Search by minimum followers
+GET /api/profiles/search?minFollowers=100
+# Combine filters
+GET /api/profiles/search?language=JavaScript&minFollowers=100
+```
+---
+Sorting (can be combined with search)
+```bash
+# Sort by followers
+GET /api/profiles/search?sort=followers&order=desc
+# Sort by total stars
+GET /api/profiles/search?sort=total_stars&order=desc
+# Sort by public repositories
+GET /api/profiles/search?sort=public_repos&order=desc
+# Sort alphabetically
+GET /api/profiles/search?sort=username&order=asc
+# Search + Sort together
+GET /api/profiles/search?language=JavaScript&sort=followers&order=desc
+```
+---
+
+Get All Profiles (Pagination Supported)
+```bash
+GET /api/profiles?page=1&limit=2
+```
