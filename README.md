@@ -23,6 +23,22 @@ This project demonstrates:
 
 ---
 
+
+
+## 🧩 Application Flow
+
+```mermaid
+graph TD
+A[User Request] --> B[Express API]
+B --> C[GitHub API]
+C --> B
+B --> D[MySQL - Aiven]
+D --> B
+B --> E[Response to Us]
+
+```
+---
+
 ## 🎯 Objective
 
 - Fetch public GitHub profile data using a username  
