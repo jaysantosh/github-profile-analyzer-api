@@ -4,7 +4,7 @@
 
 ---
 
-## 🌐 Live Demo
+## 🌐 Live API
 
 🔗 **API Base URL:**  
 https://github-profile-analyzer-api-2ug6.onrender.com
@@ -74,8 +74,8 @@ github-profile-analyzer/
 ---
 
 ## ⚙️ Environment Variables
-Create a .env file:
-```sh
+**Create a .env file:**
+```env
 
 DB_HOST=your-aiven-host
 DB_PORT=your-port
@@ -88,18 +88,18 @@ GITHUB_API_BASE=https://api.github.com
 ---
 
 ## ☁️ Database (Aiven MySQL)
-This project uses Aiven Cloud MySQL instead of a local database.<br>
-✅ Benefits:
-<br>
+This project uses Aiven Cloud MySQL instead of a local database.
 
-🌍 Cloud-hosted (accessible anywhere) <br>
-🔒 Secure (SSL support) <br>
-⚡ High availability
+✅ Benefits:
+
+-🌍 Cloud-hosted (accessible anywhere) <br>
+-🔒 Secure (SSL support) <br>
+-⚡ High availability
 
 ---
 
 ## 🛠️ Database Schema
-```bash
+```sql
 CREATE TABLE github_profiles (
   id INT AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(255),
@@ -116,36 +116,29 @@ CREATE TABLE github_profiles (
 ---
 
 ## 🔗 API Endpoints
-1️⃣ Analyze GitHub Profile
 
-```shell
-
-POST /api/analyze/:username
+```bash
+POST   /api/analyze/:username    # Analyze and store profile
+GET    /api/profiles             # Fetch all profiles
+GET    /api/profiles/:username   # Fetch single profile
 ```
 
-✅ Example Request
+**Examples**
 
-```shell
-
+```bash
+# Analyze GitHub Profile
 curl -X POST https://github-profile-analyzer-api-2ug6.onrender.com/api/analyze/octocat
-```
 
-2️⃣ Get All Profiles
-```shell
-
-GET /api/profiles
+# Get All Profiles
 curl https://github-profile-analyzer-api-2ug6.onrender.com/api/profiles
-```
 
-3️⃣ Get Profile by Username
-```shell
-
-GET /api/profiles/:username
+# Get Profile by Username
 curl https://github-profile-analyzer-api-2ug6.onrender.com/api/profiles/octocat
 ```
 
-📊 Sample Response
-```bash
+
+**📊 Sample Response**
+```json
 {
   "username": "octocat",
   "name": "The Octocat",
@@ -159,36 +152,38 @@ curl https://github-profile-analyzer-api-2ug6.onrender.com/api/profiles/octocat
 ---
 ## ▶️ Run Locally
 
-1️⃣ Clone Repository
+**Clone Repository**
 ```bash
 git clone https://github.com/jaysantosh/github-profile-analyzer-api.git
 cd github-profile-analyzer-api
 ```
 
-2️⃣ Install Dependencies
+**Install Dependencies**
 ```bash
 npm install
 ```
 
-3️⃣ Start Server
+**Start Server**
 
 ```bash
 npm run dev
 ```
 
-or 
+**or**
 ```bash
 npm start
 ```
 ---
 
 ## 🚀 Deployment <br>
-✅ Deployed on Render <br>
+**Deployed on Render** 
+
 🔗 https://github-profile-analyzer-api-2ug6.onrender.com
 
 ---
 ## 🧪 Testing
 
-Tested using Postman <br>
+**Tested using Postman** 
+
 You can also test using curl or browser for GET APIs
 
