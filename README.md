@@ -72,7 +72,18 @@ B --> E[Response to Us]
 
 ---
 
+## 🛡️ Rate Limiting
 
+To prevent abuse and ensure API stability, rate limiting is implemented.
+
+- Limits repeated requests from the same IP
+- Helps protect GitHub API quota
+- Ensures fair usage of the service
+
+Example:
+- Max 10 requests per IP per 15 minutes (configurable)
+
+---
 
 ## 📁 Project Structure
 
@@ -260,4 +271,18 @@ GET /api/profiles?page=1&limit=2
 ```
 
 ---
+
+## 🚀 Future Enhancements
+
+- Authentication (JWT)
+- UI dashboard for visualization
+- Docker containerization
+
+## 👨‍💻 Author
+
+**Jay Santosh Kumar Sharma**  
+Backend Developer | Node.js Enthusiast  
+``
+GitHub: https://github.com/jaysantosh
+``
 
