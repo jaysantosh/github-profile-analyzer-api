@@ -1,6 +1,8 @@
 # 🚀 GitHub Profile Analyzer API
 
 > A scalable backend service built with Node.js that fetches, analyzes, and stores GitHub user profile data using a cloud-hosted MySQL database.
+A production-ready REST, filtering, and sorting capabilities.
+
 
 ---
 
@@ -60,16 +62,17 @@ B --> E[Response to Us]
 
 ## ✨ Features
 
-- 🔍 Fetch GitHub profile by username  
-- 📊 Analyze key insights:
-  - Public repositories count  
-  - Followers & Following  
-  - Profile details (name, bio, URL)  
-- 💾 Store data in cloud database  
-- 📡 REST APIs for data retrieval  
-- ⚠️ Error handling (invalid users, API errors)  
+- 🔍 Real-time GitHub profile analysis
+- 📊 Aggregated insights (repos, followers, activity)
+- 🔎 Advanced search (username, language, followers)
+- 🔃 Sorting & filtering support
+- 💾 Persistent storage using cloud MySQL
+- ⚡ Scalable REST API architecture
+- 🛡️ Robust error handling & validation
 
 ---
+
+
 
 ## 📁 Project Structure
 
@@ -89,6 +92,15 @@ github-profile-analyzer/
 └── README.md
 
 ```
+---
+
+
+## ⚙️ Architecture Highlights
+
+- MVC pattern (controllers, routes separation)
+- RESTful API design
+- Cloud database integration (Aiven)
+- Stateless backend service
 ---
 
 ## ⚙️ Environment Variables
@@ -209,6 +221,8 @@ npm start
 **Tested using Postman** 
 
 You can also test using curl or browser for GET APIs
+
+Postman Tested Collection Link : https://elements.getpostman.com/redirect?entityId=32863233-f284b6fa-255c-4521-8680-0200b838b75a&entityType=collection
 
 ---
 
